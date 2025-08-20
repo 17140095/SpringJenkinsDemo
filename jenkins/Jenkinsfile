@@ -1,18 +1,7 @@
 pipeline {
     agent any
     stages{
-        stage("Clean Up") {
-            steps {
-                echo "deleting project directory"
-                deleteDir()
-            }
-        }
-        stage("Checkout") {
-            steps {
-                echo "checkout the branch"
-                sh "git clone https://github.com/17140095/SpringJenkinsDemo.git"
-            }
-        }
+
         stage("Build") {
             steps {
                 dir("SpringJenkinsDemo") {
@@ -25,6 +14,11 @@ pipeline {
                 dir("SpringJenkinsDemo") {
                     sh "mvn test"
                 }
+            }
+        }
+        stage("Completed") {
+            steps {
+                echo "Successfully Completed deployment!"
             }
         }
     }
