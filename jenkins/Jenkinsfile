@@ -10,7 +10,7 @@ pipeline {
         stage("Checkout") {
             steps {
                 echo "checkout the branch"
-                sh "git clone https://github.com/jenkins-docs/simple-java-maven-app.git"
+                sh "git clone https://github.com/17140095/SpringJenkinsDemo.git"
             }
         }
         stage("Build") {
