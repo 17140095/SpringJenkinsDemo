@@ -10,21 +10,26 @@ pipeline {
         stage("Checkout") {
             steps {
                 echo "checkout the branch"
-                sh "git clone https://github.com/jenkins-docs/simple-java-maven-app.git"
+                sh "git clone https://github.com/17140095/SpringJenkinsDemo.git"
             }
         }
         stage("Build") {
             steps {
-                dir("simple-java-maven-app") {
+                dir("SpringJenkinsDemo") {
                     sh "mvn clean install"
                 }
             }
         }
         stage("Test") {
             steps {
-                dir("simple-java-maven-app") {
+                dir("SpringJenkinsDemo") {
                     sh "mvn test"
                 }
+            }
+        }
+        stage("Completed") {
+            steps {
+                echo "Successfully Completed deployment!"
             }
         }
     }
